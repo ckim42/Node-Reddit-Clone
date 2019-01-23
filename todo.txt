@@ -1,0 +1,16 @@
+1. Create a post
+    I. Make a /POSTS/NEW route and template (POSTS-NEW.HANDLEBARS)
+    II. Add form to POSTS-NEW template
+    III. Make CREATE posts route and check that form data is sending to new route
+    IV. Add POST model with mongoose
+    V. Confirm posts are saving to database (console.log)
+2. Show all posts
+3. Comment on posts
+4. Create subreddit
+5. Create a post on a subreddit
+6. Show all subreddits
+7. Sign up & Login
+8. Associate posts, comments with their author
+9. Make comments on comments
+10. Vote a post up or down
+(11. Vote a comment up or down)
