@@ -18,10 +18,21 @@
     ✓ Make a create route for comments
     ✓ Associate comments with posts
     ✓ Display comments
-6. Create a post on a subreddit
-7. Show all subreddits
-8. Sign up & Login
+6. Sign up & Login
+    ✓ Make /SIGN-UP route, template, & form
+    6.2. Make POST /SIGN-UP route & logic
+    6.3. Make USER model
+    6.4. Encrypt users' passwords
+    6.5. Create JWT & add cookies
+    6.6. Demonstrate that user is logged in and password is encrypted
+    6.7. Make /LOGIN route, template, & form
+    6.8. Make POST /LOGIN route & logic
+7. Create a post on a subreddit
+8. Show all subreddits
 9. Associate posts, comments with their author
 10. Make comments on comments
 11. Vote a post up or down
 (12. Vote a comment up or down)
+
+Odds and Ends
+i. Form in SIGN-UP should be in middle third of grid, per tutorial

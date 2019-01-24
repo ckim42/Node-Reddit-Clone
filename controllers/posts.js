@@ -1,4 +1,5 @@
 const Post = require('../models/post');
+const User = require('../models/user');
 const express = require('express');
 const app = express();
 
@@ -32,7 +33,7 @@ module.exports = app => {
   });
 
   // SHOW
-  app.get("/posts/:id", function(req, res) {
+  app.get('/posts/:id', function(req, res) {
     // LOOK UP THE POST
     Post.findById(req.params.id).populate('comments').then((post) => {
       res.render('posts-show', { post })
@@ -41,13 +42,25 @@ module.exports = app => {
       });
   });
 
-  // SUBREDDIT
-  app.get("/n/:subreddit", function(req, res) {
+  // Subreddit
+  app.get('/n/:subreddit', function(req, res) {
     Post.find({ subreddit: req.params.subreddit })
       .then(posts => {
         res.render('posts-index', { posts });
       }).catch(err => {
         console.log(err);
+      });
+  });
+
+  // Sign up post
+  app.post('/sign-up', (req, res) => {
+    const user = new User(req.body);
+    user
+      .save()
+      .then(user => {
+        res.redirect('/');
+      }).catch(err => {
+        console.log(err.message);
       });
   });
 
