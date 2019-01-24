@@ -54,7 +54,6 @@ describe('Posts', function() {
   });
 
   // Deletes post after test run so we're not accumulating useless dummy posts
-
   after(function() {
     Post.findOneAndDelete(newPost);
   });
