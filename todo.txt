@@ -13,11 +13,11 @@
 ✓ Create subreddit
     ✓ Add a SUBREDDIT attribute to our post resource
     ✓ Navigate to view all the posts of the same subreddit
-5. Comment on posts
-    1. Make a new comment form in the /POSTS/SHOW template
-    2. Make a create route for comments
-    3. Associate comments with posts
-    4. Display comments
+✓ Comment on posts
+    ✓ Make a new comment form in the /POSTS/SHOW template
+    ✓ Make a create route for comments
+    ✓ Associate comments with posts
+    ✓ Display comments
 6. Create a post on a subreddit
 7. Show all subreddits
 8. Sign up & Login

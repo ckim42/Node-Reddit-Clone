@@ -25,6 +25,7 @@ const Post = require('./models/post');
 
 // controllers
 require('./controllers/posts.js')(app);
+require('./controllers/comments.js')(app);
 
 app.listen(3000, () => {
   console.log('App listening on port 3000!')
