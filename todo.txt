@@ -20,13 +20,13 @@
     ✓ Display comments
 6. Sign up & Login
     ✓ Make /SIGN-UP route, template, & form
-    6.2. Make POST /SIGN-UP route & logic
-    6.3. Make USER model
-    6.4. Encrypt users' passwords
-    6.5. Create JWT & add cookies
-    6.6. Demonstrate that user is logged in and password is encrypted
-    6.7. Make /LOGIN route, template, & form
-    6.8. Make POST /LOGIN route & logic
+    ✓ Make POST /SIGN-UP route & logic
+    ✓ Make USER model
+    ✓ Encrypt users' passwords
+    ✓ Create JWT & add cookies
+    ✓ Demonstrate that user is logged in and password is encrypted
+    7. Make /LOGIN route, template, & form
+    8. Make POST /LOGIN route & logic
 7. Create a post on a subreddit
 8. Show all subreddits
 9. Associate posts, comments with their author
