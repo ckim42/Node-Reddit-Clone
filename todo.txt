@@ -18,15 +18,15 @@
     ✓ Make a create route for comments
     ✓ Associate comments with posts
     ✓ Display comments
-6. Sign up & Login
+✓ Sign up & Login
     ✓ Make /SIGN-UP route, template, & form
     ✓ Make POST /SIGN-UP route & logic
     ✓ Make USER model
     ✓ Encrypt users' passwords
     ✓ Create JWT & add cookies
     ✓ Demonstrate that user is logged in and password is encrypted
-    7. Make /LOGIN route, template, & form
-    8. Make POST /LOGIN route & logic
+    ✓ Make /LOGIN route, template, & form
+    ✓ Make POST /LOGIN route & logic
 7. Create a post on a subreddit
 8. Show all subreddits
 9. Associate posts, comments with their author
