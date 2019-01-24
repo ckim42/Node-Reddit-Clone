@@ -3,17 +3,23 @@ const express = require('express');
 const app = express();
 
 module.exports = app => {
-  // NEW/Create
-  app.post("/posts/new", (req, res) => {
-    // instantiate instance of post model
-    const post = new Post(req.body);
 
-    // save instance of post model to db
-    post.save((err, post) => {
-      console.log("hi");
-      // redirect to the root
-      return res.redirect('/');
+  // root route
+  app.get('/', (req, res) => {
+    res.send('Hello World!')
+  });
+
+  // NEW
+  app.get('/posts/new', (req, res) => {
+    res.render('posts-new', {});
+  });
+
+  // CREATE
+  app.post('/posts/new', (req, res) => {
+    // console.log("req.body:", req.body);
+    const post = new Post(req.body); //instantiate instance of post model
+    post.save((err, post) => { //save instance of post model to db
+      return res.redirect('/'); //redirects to the root
     })
-
   });
 };

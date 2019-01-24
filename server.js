@@ -7,6 +7,9 @@ const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 const app = express();
 
+// set db
+require('./data/reddit-db');
+
 // middleware
 app.use(methodOverride('_method'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -17,20 +20,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //    Add after body parser init!
 app.use(expressValidator());
 
+// models
+const Post = require('./models/post');
+
 // controllers
 require('./controllers/posts.js')(app);
-//    Set db
-require('./data/reddit-db');
-
-//home
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
-
-//NEW
-app.get('/posts/new', (req, res) => {
-  res.render('posts-new', {});
-});
 
 app.listen(3000, () => {
   console.log('App listening on port 3000!')
