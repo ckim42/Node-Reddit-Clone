@@ -10,10 +10,14 @@
     ✓ Make route to /POSTS/SHOW route (/POSTS/:ID)
     ✓ Style the template and display the POST object
 ✓ Show one post (Show)
-4. Comment on posts
-5. Create subreddit
+✓ Create subreddit
     ✓ Add a SUBREDDIT attribute to our post resource
-    2. Navigate to view all the posts of the same subreddit
+    ✓ Navigate to view all the posts of the same subreddit
+5. Comment on posts
+    1. Make a new comment form in the /POSTS/SHOW template
+    2. Make a create route for comments
+    3. Associate comments with posts
+    4. Display comments
 6. Create a post on a subreddit
 7. Show all subreddits
 8. Sign up & Login
