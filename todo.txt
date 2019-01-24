@@ -1,15 +1,15 @@
-✓ Create a post
+✓ Create a post (New & Create)
     ✓ Make a /POSTS/NEW route and template (POSTS-NEW.HANDLEBARS)
     ✓ Add form to POSTS-NEW template
     ✓ Make CREATE posts route and check that form data is sending to new route
     ✓ Add POST model with mongoose
     ✓ Confirm posts are saving to database
-✓ Show all posts
+✓ Show all posts (Index)
     ✓ Make the root route go to the /POSTS/INDEX route & render a POSTS-INDEX template
     ✓ Style the template and loop over the POSTS object
     ✓ Make route to /POSTS/SHOW route (/POSTS/:ID)
     ✓ Style the template and display the POST object
-3. Show one post
+✓ Show one post (Show)
 4. Comment on posts
 5. Create subreddit
 6. Create a post on a subreddit
