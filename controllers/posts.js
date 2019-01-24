@@ -4,9 +4,15 @@ const app = express();
 
 module.exports = app => {
 
-  // root route
+  // INDEX (also our root route)
   app.get('/', (req, res) => {
-    res.send('Hello World!')
+    Post.find({})
+      .then(posts => {
+        res.render("posts-index", { posts });
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
   });
 
   // NEW
@@ -22,4 +28,5 @@ module.exports = app => {
       return res.redirect('/'); //redirects to the root
     })
   });
+
 };
