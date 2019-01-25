@@ -1,20 +1,4 @@
-
-6. Sign up & Login
-    ✓ Make /SIGN-UP route, template, & form
-    ✓ Make POST /SIGN-UP route & logic
-    ✓ Make USER model
-    ✓ Encrypt users' passwords
-    ✓ Create JWT & add cookies
-    ✓ Demonstrate that user is logged in and password is encrypted
-    7. Make /LOGIN route, template, & form
-    8. Make POST /LOGIN route & logic
-7. Create a post on a subreddit
-8. Show all subreddits
-9. Associate posts, comments with their author
-10. Make comments on comments
-11. Vote a post up or down
-(12. Vote a comment up or down)
-
+Completed:
 ✓ Create a post (New & Create)
     ✓ Make a /POSTS/NEW route and template (POSTS-NEW.HANDLEBARS)
     ✓ Add form to POSTS-NEW template
@@ -35,6 +19,37 @@
     ✓ Make a create route for comments
     ✓ Associate comments with posts
     ✓ Display comments
+✓ Sign up & Login
+    ✓ Make /SIGN-UP route, template, & form
+    ✓ Make POST /SIGN-UP route & logic
+    ✓ Make USER model
+    ✓ Encrypt users' passwords
+    ✓ Create JWT & add cookies
+    ✓ Demonstrate that user is logged in and password is encrypted
+    ✓ Make /LOGIN route, template, & form
+    ✓ Make POST /LOGIN route & logic
 
-Odds and Ends
+Outstanding:
+7. Associate posts, comments with their author
+    1. Check authentication and make REQ.USER and CURRENTUSER objects
+    2. Add AUTHOR attribute to comments and posts
+    3. Save the user as the author of posts
+    4. Display the author's username on posts and comments
+8. Make comments on comments
+    1. Optimize how we populate
+    2. Make comments embedded inside comments
+    3. Test that comments on comments are working
+9. Vote a post up or down
+    1. Make vote form
+    2. Add jQuery AJAX scripts
+    3. Write "vote up" and "vote down" routes
+    4. Add new attributes to POST model
+    5. Update DOM with response
+(10. Vote a comment up or down)
+(11. Create a post on a subreddit)
+(12. Show all subreddits)
+
+Odds and Ends:
 i. Form in SIGN-UP should be in middle third of grid, per tutorial
+ii. To allow main templates to work, you need to add currentUser to all routes calling res.render(). Brainstorm how to make it DRY.
+iii. About halfway thru pg. 8 (Associate post, comments with their author) on updating CREATE in posts controller: Suggestion to create another example of custom middleware called CHECKAUTH and use it on routes that require user to be logged in. Rewrite CREATE into its own middlware called "CheckAuth"
