@@ -1,3 +1,20 @@
+
+6. Sign up & Login
+    ✓ Make /SIGN-UP route, template, & form
+    ✓ Make POST /SIGN-UP route & logic
+    ✓ Make USER model
+    ✓ Encrypt users' passwords
+    ✓ Create JWT & add cookies
+    ✓ Demonstrate that user is logged in and password is encrypted
+    7. Make /LOGIN route, template, & form
+    8. Make POST /LOGIN route & logic
+7. Create a post on a subreddit
+8. Show all subreddits
+9. Associate posts, comments with their author
+10. Make comments on comments
+11. Vote a post up or down
+(12. Vote a comment up or down)
+
 ✓ Create a post (New & Create)
     ✓ Make a /POSTS/NEW route and template (POSTS-NEW.HANDLEBARS)
     ✓ Add form to POSTS-NEW template
@@ -18,21 +35,6 @@
     ✓ Make a create route for comments
     ✓ Associate comments with posts
     ✓ Display comments
-6. Sign up & Login
-    ✓ Make /SIGN-UP route, template, & form
-    ✓ Make POST /SIGN-UP route & logic
-    ✓ Make USER model
-    ✓ Encrypt users' passwords
-    ✓ Create JWT & add cookies
-    ✓ Demonstrate that user is logged in and password is encrypted
-    7. Make /LOGIN route, template, & form
-    8. Make POST /LOGIN route & logic
-7. Create a post on a subreddit
-8. Show all subreddits
-9. Associate posts, comments with their author
-10. Make comments on comments
-11. Vote a post up or down
-(12. Vote a comment up or down)
 
 Odds and Ends
 i. Form in SIGN-UP should be in middle third of grid, per tutorial
