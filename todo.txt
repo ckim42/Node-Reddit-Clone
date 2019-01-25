@@ -1,6 +1,13 @@
+Current Status:
+* Tutorial completed thru 'Fixed posts test' checkpoint on p9
+* Seems fxnl thru 'Implemented initial authentication tests' checkpoint
+* Everything after that = big rip
+* Entirely possible I'm missing something glaringly obvious and just need to reapproach with fresh eyes
+
 Bugs & Blockers:
 i. Comments presently will not show
 ii. Redirection after submitting comment = nada
+iii. 2/4 tests won't pass and I cannot figure out WHY
 
 Completed:
 ✓ Create a post (New & Create)
@@ -35,15 +42,17 @@ Completed:
 
 Outstanding:
 7. Associate posts, comments with their author
-    1. Check authentication and make REQ.USER and CURRENTUSER objects
-    2. Add AUTHOR attribute to comments and posts
-    3. Save the user as the author of posts
-    4. Display the author's username on posts and comments
-8. Make comments on comments
+    ✓ Check authentication and make REQ.USER and CURRENTUSER objects
+    ✓ Add AUTHOR attribute to comments and posts
+    ✓ Save the user as the author of posts
+    ✓ Display the author's username on posts
+    5. Display the author's username on comments
+8. Moar tests
+9. Make comments on comments
     1. Optimize how we populate
     2. Make comments embedded inside comments
     3. Test that comments on comments are working
-9. Vote a post up or down
+10. Vote a post up or down
     1. Make vote form
     2. Add jQuery AJAX scripts
     3. Write "vote up" and "vote down" routes
@@ -51,14 +60,14 @@ Outstanding:
     5. Update DOM with response
 
 Moar:
-10. Go back through tutorial to find stretch challenges
-11. Vote a comment up or down
-12. Create a post on a subreddit
-13. Show all subreddits
-14. Standardize syntax across board
-15. Commentate
+11. Go back through tutorial to find stretch challenges
+12. Vote a comment up or down
+13. Create a post on a subreddit
+14. Show all subreddits
+15. Standardize syntax across board
+16. Commentate
 
 Odds and Ends:
 i. Form in SIGN-UP should be in middle third of grid, per tutorial
 ii. To allow main templates to work, you need to add currentUser to all routes calling res.render(). Brainstorm how to make it DRY.
-iii. About halfway thru pg. 8 (Associate post, comments with their author) on updating CREATE in posts controller: Suggestion to create another example of custom middleware called CHECKAUTH and use it on routes that require user to be logged in. Rewrite CREATE into its own middlware called "CheckAuth"
+iii. About halfway thru pg. 8 (Associate post, comments with their author) on updating CREATE in posts controller: Suggestion to create another example of custom middleware called CHECKAUTH and use it on routes that require user to be logged in. Rewrite CREATE into its own middleware called "CheckAuth"
