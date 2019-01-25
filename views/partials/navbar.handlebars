@@ -8,13 +8,18 @@
     </div>
 
     <div class="pull-right">
-      <a href="/posts/new" class="btn btn-default navbar-btn">New Post</a>
+      {{#if currentUser}}
+        <a href="/posts/new" class="btn btn-primary navbar-btn">New Post</a>
+      {{/if}}
     </div>
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/logout">Logout</a></li>
-      <li><a href="/login">Login</a></li>
-      <li><a href="/sign-up">Sign Up</a></li>
+      {{#if currentUser}}
+        <li><a href="/logout">Logout</a></li>
+      {{else}}
+        <li><a href="/login">Login</a></li>
+        <li><a href="/sign-up">Sign Up</a></li>
+      {{/if}}
     </ul>
 
   </div>

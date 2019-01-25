@@ -6,6 +6,17 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 var cookieParser = require('cookie-parser');
+var checkAuth = (req, res, next) => {
+  console.log("Checking authentication");
+  if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
+    req.user = null;
+  } else {
+    var token = req.cookies.nToken;
+    var decodedToken = jwt.decode(token, { complete: true }) || {};
+    req.user = decodedToken.payload;
+  }
+  next();
+};
 const jwt = require('jsonwebtoken');
 const app = express();
 
@@ -25,6 +36,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 //    Add after body parser init!
 app.use(expressValidator());
+app.use(checkAuth);
 
 // models
 const Post = require('./models/post');
