@@ -1,3 +1,7 @@
+Bugs & Blockers:
+i. Comments presently will not show
+ii. Redirection after submitting comment = nada
+
 Completed:
 ✓ Create a post (New & Create)
     ✓ Make a /POSTS/NEW route and template (POSTS-NEW.HANDLEBARS)
@@ -45,9 +49,14 @@ Outstanding:
     3. Write "vote up" and "vote down" routes
     4. Add new attributes to POST model
     5. Update DOM with response
-(10. Vote a comment up or down)
-(11. Create a post on a subreddit)
-(12. Show all subreddits)
+
+Moar:
+10. Go back through tutorial to find stretch challenges
+11. Vote a comment up or down
+12. Create a post on a subreddit
+13. Show all subreddits
+14. Standardize syntax across board
+15. Commentate
 
 Odds and Ends:
 i. Form in SIGN-UP should be in middle third of grid, per tutorial

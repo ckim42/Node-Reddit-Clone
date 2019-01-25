@@ -9,7 +9,8 @@ module.exports = function(app) {
   // INDEX (also our root route)
   app.get('/', (req, res) => {
     var currentUser = req.user;
-    Post.find({})
+    console.log(req.cookies);
+    Post.find().populate('author')
       .then(posts => {
         res.render('posts-index', { posts, currentUser });
       }).catch(err => {
@@ -43,19 +44,21 @@ module.exports = function(app) {
 
   // SHOW
   app.get('/posts/:id', function(req, res) {
+    var currentUser = req.user;
     // LOOK UP THE POST
-    Post.findById(req.params.id).populate('comments').then((post) => {
+    Post.findById(req.params.id).populate('comments').populate('author').then((post) => {
       res.render('posts-show', { post })
     }).catch(err => {
         console.log(err.message);
-      });
+    });
   });
 
   // Subreddit
   app.get('/n/:subreddit', function(req, res) {
-    Post.find({ subreddit: req.params.subreddit })
+    var currentUser = req.user;
+    Post.find({ subreddit: req.params.subreddit }).populate('author')
       .then(posts => {
-        res.render('posts-index', { posts });
+        res.render('posts-index', { posts, currentUser });
       }).catch(err => {
         console.log(err);
       });
