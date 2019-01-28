@@ -87,17 +87,14 @@ describe('Posts', function() {
       agent.close()
       User.findOneAndDelete({
           username: user.username
-      })
-        .then(function (res) {
+      }).then(function (res) {
             done()
-        })
-        .catch(function (err) {
+        }).catch(function (err) {
             done(err);
         });
-    })
-  .catch(function (err) {
+    }).catch(function (err) {
       done(err);
-  });
+    });
   });
 
 });
