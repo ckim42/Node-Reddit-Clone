@@ -22,7 +22,6 @@ module.exports = function(app) {
         return post.save();
       }).then(post => {
         res.redirect('/posts/${req.params.postId}');
-        // res.redirect('/'); // checking if it's redirecting at all. it is not. >:(
       }).catch(err => {
         console.log(err.message);
       });
