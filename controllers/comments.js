@@ -21,7 +21,8 @@ module.exports = function(app) {
         post.comments.unshift(comment)
         return post.save();
       }).then(post => {
-        res.redirect('/posts/${req.params.postId}');
+        res.redirect('/');
+        // res.redirect('/posts/${req.params.postId}');
       }).catch(err => {
         console.log(err.message);
       });

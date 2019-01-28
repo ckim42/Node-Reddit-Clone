@@ -5,9 +5,7 @@ Current Status:
 * Entirely possible I'm missing something glaringly obvious and just need to reapproach with fresh eyes
 
 Bugs & Blockers:
-i. Comments presently will not show
-ii. Redirection after submitting comment = nada
-iii. 2/4 tests won't pass and I cannot figure out WHY
+i. 2/4 tests won't pass and I cannot figure out WHY
 
 Completed:
 ✓ Create a post (New & Create)
@@ -39,14 +37,14 @@ Completed:
     ✓ Demonstrate that user is logged in and password is encrypted
     ✓ Make /LOGIN route, template, & form
     ✓ Make POST /LOGIN route & logic
-
-Outstanding:
-7. Associate posts, comments with their author
+✓ Associate posts, comments with their author
     ✓ Check authentication and make REQ.USER and CURRENTUSER objects
     ✓ Add AUTHOR attribute to comments and posts
     ✓ Save the user as the author of posts
     ✓ Display the author's username on posts
-    5. Display the author's username on comments
+    ✓ Display the author's username on comments
+
+Outstanding:
 8. Moar tests
 9. Make comments on comments
     1. Optimize how we populate
@@ -64,7 +62,7 @@ Moar:
 12. Vote a comment up or down
 13. Create a post on a subreddit
 14. Show all subreddits
-15. Standardize syntax across board
+15. Standardize syntax across the board
 16. Commentate
 
 Odds and Ends:
