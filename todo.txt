@@ -1,11 +1,8 @@
 Current Status:
-* Tutorial completed thru 'Fixed posts test' checkpoint on p9
-* Seems fxnl thru 'Implemented initial authentication tests' checkpoint
-* Everything after that = big rip
-* Entirely possible I'm missing something glaringly obvious and just need to reapproach with fresh eyes
+* At the 'Fixed posts test' checkpoint on p9
 
 Bugs & Blockers:
-i. 2/4 tests won't pass and I cannot figure out WHY
+* 1 of the 4 tests won't pass
 
 Completed:
 ✓ Create a post (New & Create)
@@ -66,6 +63,10 @@ Moar:
 16. Commentate
 
 Odds and Ends:
-i. Form in SIGN-UP should be in middle third of grid, per tutorial
-ii. To allow main templates to work, you need to add currentUser to all routes calling res.render(). Brainstorm how to make it DRY.
-iii. About halfway thru pg. 8 (Associate post, comments with their author) on updating CREATE in posts controller: Suggestion to create another example of custom middleware called CHECKAUTH and use it on routes that require user to be logged in. Rewrite CREATE into its own middleware called "CheckAuth"
+* Form in SIGN-UP should be in middle third of grid, per tutorial
+* To allow main templates to work, you need to add currentUser to all routes calling res.render().
+Brainstorm how to make it DRY.
+* About halfway thru pg. 8 (Associate post, comments with their author) on updating CREATE in
+posts controller: Suggestion to create another example of custom middleware called CHECKAUTH and
+use it on routes that require user to be logged in. Rewrite CREATE into its own middleware
+called "CheckAuth"
