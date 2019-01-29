@@ -1,8 +1,8 @@
 Current Status:
-* At the 'Fixed posts test' checkpoint on p9
+* Start of p10
 
 Bugs & Blockers:
-* 1 of the 4 tests won't pass
+* Post test won't pass (partway thru p9)
 
 Completed:
 ✓ Create a post (New & Create)
@@ -42,17 +42,17 @@ Completed:
     ✓ Display the author's username on comments
 
 Outstanding:
-8. Moar tests
-9. Make comments on comments
+8. Make comments on comments
     1. Optimize how we populate
     2. Make comments embedded inside comments
     3. Test that comments on comments are working
-10. Vote a post up or down
+9. Vote a post up or down
     1. Make vote form
     2. Add jQuery AJAX scripts
     3. Write "vote up" and "vote down" routes
     4. Add new attributes to POST model
     5. Update DOM with response
+10. More tests - fix post test
 
 Moar:
 11. Go back through tutorial to find stretch challenges
