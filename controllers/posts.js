@@ -33,7 +33,7 @@ module.exports = function(app) {
       }).then(user => {
         user.posts.unshift(post);
         user.save();
-        res.redirect('/posts/' + post._id) // thanks to Connor Cahill for the "+" trick
+        return res.redirect('/posts/' + post._id); // thanks to Connor Cahill for the "+" trick
       }).catch(err => {
         console.log(err.message);
       });
@@ -64,18 +64,6 @@ module.exports = function(app) {
           .catch(err => {
               console.log(err);
           });
-  });
-
-  // Sign up post
-  app.post('/sign-up', (req, res) => {
-    const user = new User(req.body);
-    user
-      .save()
-      .then(user => {
-        res.redirect('/');
-      }).catch(err => {
-        console.log(err.message);
-      });
   });
 
 };

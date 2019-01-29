@@ -3,7 +3,8 @@ Current Status:
 
 Bugs & Blockers:
 * Post test won't pass (partway thru p9)
-* "Cannot GET" for creating reply (last chunk of p10)
+* Comments on comments save, but they do not show (end of p10)
+* Comments on comments on comments => Cannot GET /posts//comments/postId/replies/new
 
 Completed:
 ✓ Create a post (New & Create)

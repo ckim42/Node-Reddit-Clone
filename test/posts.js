@@ -60,7 +60,7 @@ describe('Posts', function() {
                 expect(res).to.have.status(200);
                 // Check that the database has one more post in it
                 expect(newDocCount).to.be.equal(initialDocCount + 1)
-                done();
+                return done();
               })
               .catch(function(err) {
                 done(err);
