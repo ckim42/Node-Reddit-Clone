@@ -65,9 +65,8 @@ Moar:
 
 Odds and Ends:
 * Form in SIGN-UP should be in middle third of grid, per tutorial
-* To allow main templates to work, you need to add currentUser to all routes calling res.render().
-  Brainstorm how to make it DRY.
-* About halfway thru pg. 8 (Associate post, comments with their author) on updating CREATE in
-  posts controller: Suggestion to create another example of custom middleware called CHECKAUTH and
-  use it on routes that require user to be logged in. Rewrite CREATE into its own middleware
-  called "CheckAuth"
+* To allow main templates to work, you need to add currentUser to all routes calling res.render(). Brainstorm how to make
+  it DRY.
+* About halfway thru pg. 8 (Associate post, comments with their author) on updating CREATE in posts controller: Suggestion
+  to create another example of custom middleware called CHECKAUTH and use it on routes that require user to be logged in.
+  Rewrite CREATE into its own middleware called "CheckAuth"
