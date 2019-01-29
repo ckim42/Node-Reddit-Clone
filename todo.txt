@@ -1,8 +1,9 @@
 Current Status:
-* Start of p10
+* End of p10
 
 Bugs & Blockers:
 * Post test won't pass (partway thru p9)
+* "Cannot GET" for creating reply (last chunk of p10)
 
 Completed:
 ✓ Create a post (New & Create)
@@ -43,8 +44,8 @@ Completed:
 
 Outstanding:
 8. Make comments on comments
-    1. Optimize how we populate
-    2. Make comments embedded inside comments
+    ✓ Optimize how we populate
+    ✓ Make comments embedded inside comments
     3. Test that comments on comments are working
 9. Vote a post up or down
     1. Make vote form
