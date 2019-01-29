@@ -20,18 +20,18 @@ module.exports = app => {
       });
   });
 
-
-app.post('/posts/:postId/comments/:commentId/replies', (req, res) => {
-  const reply = new Comment(req.body);
-  reply.author = req.user._id;
-  reply.save()
-  .then(() => Comment.findById(req.params.commentId))
-  .then((comment) => {
-    comment.comments.unshift(reply);
-    return comment.save();
-  })
-  .then(() => res.redirect(`/posts/${req.params.postId}`))
-  .catch(console.error)
-});
+  // CREATE REPLY
+  app.post('/posts/:postId/comments/:commentId/replies', (req, res) => {
+    const reply = new Comment(req.body);
+    reply.author = req.user._id;
+    reply.save()
+    .then(() => Comment.findById(req.params.commentId))
+    .then((comment) => {
+      comment.comments.unshift(reply);
+      return comment.save();
+    })
+    .then(() => res.redirect(`/posts/${req.params.postId}`))
+    .catch(console.error)
+  });
 
 }
