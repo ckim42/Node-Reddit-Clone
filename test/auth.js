@@ -38,6 +38,15 @@ describe("User", function() {
     });
   });
 
+  // logout
+  it("should be able to logout", function(done) {
+    agent.get("/logout").end(function(err, res) {
+      res.should.have.status(200);
+      agent.should.not.have.cookie("nToken");
+      done();
+    });
+  });
+
   after(function () {
     agent.close()
   });
