@@ -39,7 +39,7 @@ app.use(expressValidator());
 app.use(checkAuth);
 
 // models
-const Post = require('./models/post');
+// const Post = require('./models/post');
 
 // controllers
 require('./controllers/posts.js')(app);
