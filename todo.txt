@@ -1,10 +1,8 @@
 Current Status:
-* End of p10
+* Top of p11
 
 Bugs & Blockers:
 * Post test won't pass (partway thru p9)
-* Comments on comments save, but they do not show (end of p10)
-* Comments on comments on comments => Cannot GET /posts//comments/postId/replies/new
 
 Completed:
 ✓ Create a post (New & Create)
@@ -42,12 +40,12 @@ Completed:
     ✓ Save the user as the author of posts
     ✓ Display the author's username on posts
     ✓ Display the author's username on comments
-
-Outstanding:
-8. Make comments on comments
+✓ Make comments on comments
     ✓ Optimize how we populate
     ✓ Make comments embedded inside comments
-    3. Test that comments on comments are working
+    ✓ Test that comments on comments are working
+
+Outstanding:
 9. Vote a post up or down
     1. Make vote form
     2. Add jQuery AJAX scripts
