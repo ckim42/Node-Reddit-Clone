@@ -37,6 +37,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //    Add after body parser init!
 app.use(expressValidator());
 app.use(checkAuth);
+//    This tells it to look for static files in public folder
+app.use(express.static('public'));
+
 
 // models
 // const Post = require('./models/post');

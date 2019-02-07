@@ -12,7 +12,10 @@ module.exports = function(app) {
     console.log(req.cookies);
     Post.find().populate('author')
       .then(posts => {
-        res.render('posts-index', { posts, currentUser });
+        res.render('posts-index', {
+          posts,
+          currentUser
+        });
       }).catch(err => {
         console.log(err.message);
       });
@@ -28,6 +31,9 @@ module.exports = function(app) {
     if (req.user) {
       var post = new Post(req.body);
       post.author = req.user._id;
+      post.upVotes = [];
+      post.downVotes = [];
+      post.voteScore = 0;
       post.save().then(post => {
         return User.findById(req.user._id);
       }).then(user => {
@@ -43,27 +49,57 @@ module.exports = function(app) {
   });
 
   // SHOW
-  app.get("/posts/:id", function (req, res) {
-      var currentUser = req.user;
-      Post.findById(req.params.id).populate('comments').lean()
-          .then(post => {
-              res.render("posts-show", { post, currentUser });
-          })
-          .catch(err => {
-              console.log(err.message);
-          });
+  app.get("/posts/:id", function(req, res) {
+    var currentUser = req.user;
+    Post.findById(req.params.id).populate('comments').lean()
+      .then(post => {
+        res.render("posts-show", {
+          post,
+          currentUser
+        });
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
   });
 
   // Subreddit
-  app.get("/n/:subreddit", function (req, res) {
-      var currentUser = req.user;
-      Post.find({ subreddit: req.params.subreddit }).lean()
-          .then(posts => {
-              res.render("posts-index", { posts, currentUser });
-          })
-          .catch(err => {
-              console.log(err);
-          });
+  app.get("/n/:subreddit", function(req, res) {
+    var currentUser = req.user;
+    Post.find({
+        subreddit: req.params.subreddit
+      }).lean()
+      .then(posts => {
+        res.render("posts-index", {
+          posts,
+          currentUser
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+
+  // Why PUT? --> Because an upvote EDITS an existing resource
+  app.put("/posts/:id/vote-up", function(req, res) {
+    Post.findById(req.params.id).exec(function(err, post) {
+      post.upVotes.push(req.user._id);
+      post.voteScore = post.voteScore + 1;
+      return post.save();
+
+      res.status(200);
+    });
+  });
+
+  // Why PUT? --> Because a downvote EDITS an existing resource
+  app.put("/posts/:id/vote-down", function(req, res) {
+    Post.findById(req.params.id).exec(function(err, post) {
+      post.downVotes.push(req.user._id);
+      post.voteScore = post.voteScore - 1;
+      return post.save();
+
+      res.status(200);
+    });
   });
 
 };

@@ -47,10 +47,10 @@ Completed:
 
 Outstanding:
 9. Vote a post up or down
-    1. Make vote form
-    2. Add jQuery AJAX scripts
-    3. Write "vote up" and "vote down" routes
-    4. Add new attributes to POST model
+    ✓ Make vote form
+    ✓ Add jQuery AJAX scripts <-- suspecting error here
+    ✓ Write "vote up" and "vote down" routes
+    ✓ Add new attributes to POST model
     5. Update DOM with response
 10. More tests - fix post test
 
