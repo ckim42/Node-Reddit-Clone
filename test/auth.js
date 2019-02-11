@@ -1,3 +1,5 @@
+"Test: User authentication"
+
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const chai = require("chai");

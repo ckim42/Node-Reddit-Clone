@@ -1,8 +1,10 @@
 Current Status:
-* Top of p11
+* thru p11
 
 Bugs & Blockers:
 * Post test won't pass (partway thru p9)
+* Votes don't work:
+    ERROR MESSAGE: failed: voteScore: Cast to Number failed for value "NaN" at path "voteScore"
 
 Completed:
 ✓ Create a post (New & Create)

@@ -1,4 +1,5 @@
 "Test: posts/create route"
+// TRY creating a user within the test, that might make it work
 
 const app = require("./../server");
 const chai = require("chai");
@@ -22,6 +23,7 @@ describe('Posts', function() {
     title: 'test post title',
     url: 'https://www.google.com',
     summary: 'test post summary',
+    subreddit: 'random'
   };
 
   const user = {
@@ -29,30 +31,30 @@ describe('Posts', function() {
     password: 'testposts'
   };
 
-  before(function (done) {
-  agent
-    .post('/sign-up')
-    .set("content-type", "application/x-www-form-urlencoded")
-    .send(user)
-    .then(function (res) {
-      done();
-    })
-    .catch(function (err) {
-      done(err);
-    });
+  before(function(done) {
+    agent
+      .post('/sign-up')
+      .set("content-type", "application/x-www-form-urlencoded")
+      .send(user)
+      .then(function(res) {
+        done();
+      })
+      .catch(function(err) {
+        done(err);
+      });
   });
 
   it('Should create with valid attributes at POST /posts/new', function(done) {
     // Checks how many posts there are now
     Post.estimatedDocumentCount()
       .then(function(initialDocCount) {
-        chai
-          .request(app)
+        agent
           .post("/posts/new")
           // The following masquerades as form post b/c we won't actually fill one while testing
           .set("content-type", "application/x-www-form-urlencoded")
           // Make a request to create another
           .send(newPost)
+          //test fails out after the send
           .then(function(res) {
             Post.estimatedDocumentCount()
               .then(function(newDocCount) {
@@ -63,14 +65,17 @@ describe('Posts', function() {
                 return done();
               })
               .catch(function(err) {
+                console.log(err.message)
                 done(err);
               });
           })
           .catch(function(err) {
+            console.log(err.message)
             done(err);
           });
       })
       .catch(function(err) {
+        console.log(err.message)
         done(err);
       });
   });
@@ -81,20 +86,20 @@ describe('Posts', function() {
   // });
 
   // New version of after hook
-  after(function (done) {
+  after(function(done) {
     Post.findOneAndDelete(newPost)
-    .then(function (res) {
-      agent.close()
-      User.findOneAndDelete({
+      .then(function(res) {
+        agent.close()
+        User.findOneAndDelete({
           username: user.username
-      }).then(function (res) {
-            done()
-        }).catch(function (err) {
-            done(err);
+        }).then(function(res) {
+          done()
+        }).catch(function(err) {
+          done(err);
         });
-    }).catch(function (err) {
-      done(err);
-    });
+      }).catch(function(err) {
+        done(err);
+      });
   });
 
 });
