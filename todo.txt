@@ -1,10 +1,18 @@
 Current Status:
-* thru p11
+* done with requirements
 
 Bugs & Blockers:
-* Post test won't pass (partway thru p9)
-* Votes don't work:
-    ERROR MESSAGE: failed: voteScore: Cast to Number failed for value "NaN" at path "voteScore"
+* none right now
+
+Must do:
+* Push to Heroku
+
+Extra:
+* Delete a post
+* Delete a comment
+* Add styling
+* Standardize syntax
+* Add comments to code
 
 Completed:
 ✓ Create a post (New & Create)
@@ -46,28 +54,10 @@ Completed:
     ✓ Optimize how we populate
     ✓ Make comments embedded inside comments
     ✓ Test that comments on comments are working
-
-Outstanding:
-9. Vote a post up or down
+✓ Make sure tests pass
+✓ Vote a post up or down
     ✓ Make vote form
     ✓ Add jQuery AJAX scripts <-- suspecting error here
     ✓ Write "vote up" and "vote down" routes
     ✓ Add new attributes to POST model
-    5. Update DOM with response
-10. More tests - fix post test
-
-Moar:
-11. Go back through tutorial to find stretch challenges
-12. Vote a comment up or down
-13. Create a post on a subreddit
-14. Show all subreddits
-15. Standardize syntax across the board
-16. Commentate
-
-Odds and Ends:
-* Form in SIGN-UP should be in middle third of grid, per tutorial
-* To allow main templates to work, you need to add currentUser to all routes calling res.render(). Brainstorm how to make
-  it DRY.
-* About halfway thru pg. 8 (Associate post, comments with their author) on updating CREATE in posts controller: Suggestion
-  to create another example of custom middleware called CHECKAUTH and use it on routes that require user to be logged in.
-  Rewrite CREATE into its own middleware called "CheckAuth"
+    ✓ Update DOM with response
