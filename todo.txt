@@ -57,7 +57,7 @@ Completed:
 ✓ Make sure tests pass
 ✓ Vote a post up or down
     ✓ Make vote form
-    ✓ Add jQuery AJAX scripts <-- suspecting error here
+    ✓ Add jQuery AJAX scripts
     ✓ Write "vote up" and "vote down" routes
     ✓ Add new attributes to POST model
     ✓ Update DOM with response
