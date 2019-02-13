@@ -1,12 +1,3 @@
 .comment-indent {
   margin-left: 20px;
 }
-
-.one-card {
-  border: 1px solid;
-  width: auto !important;
-  padding: 20px 15px;
-  border-radius: 2rem;
-  margin-top: 15px;
-  indent: 20px;
-}
