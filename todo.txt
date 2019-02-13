@@ -1,18 +1,12 @@
 Current Status:
-* done with requirements
+* gone through entire tutorial
 
 Bugs & Blockers:
 * none right now
+  -> droxey says just 2 levels of nested comments = ok
 
 Must do:
 * Push to Heroku
-
-Extra:
-* Delete a post
-* Delete a comment
-* Add styling
-* Standardize syntax
-* Add comments to code
 
 Completed:
 ✓ Create a post (New & Create)
@@ -61,3 +55,13 @@ Completed:
     ✓ Write "vote up" and "vote down" routes
     ✓ Add new attributes to POST model
     ✓ Update DOM with response
+✓ Delete a post
+✓ Add a bit of styling
+✓ Standardize syntax
+✓ Comment
+
+For the future:
+* Delete a comment
+* Edit a post
+* Edit a comment
+* Alert user to log in if they try to reply when logged out

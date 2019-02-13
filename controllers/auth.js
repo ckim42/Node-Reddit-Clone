@@ -16,13 +16,13 @@ module.exports = (app) => {
     // Create user & JWT
     const user = new User(req.body);
     user.save().then((user) => {
-        var token = jwt.sign({ _id: user._id }, process.env.SECRET, { expiresIn: "60 days" });
-        res.cookie('nToken', token, { maxAge: 900000, httpOnly: true });
-        res.redirect("/");
-      }).catch(err => {
-        console.log(err.message);
-        return res.status(400).send({ err: err });
-      });
+      var token = jwt.sign({ _id: user._id }, process.env.SECRET, { expiresIn: "60 days" });
+      res.cookie('nToken', token, { maxAge: 900000, httpOnly: true });
+      res.redirect("/");
+    }).catch(err => {
+      console.log(err.message);
+      return res.status(400).send({ err: err });
+    });
   });
 
   // LOGOUT
@@ -40,7 +40,7 @@ module.exports = (app) => {
   app.post("/login", (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-    const user = new User(req.body); //DO I REALLY NEED THIS? THERE MUST BE A WAY TO WORK WITHOUT IT
+    const user = new User(req.body);
 
     // Find this user name
     User.findOne({ username }, "username password")
@@ -55,7 +55,7 @@ module.exports = (app) => {
           const token = jwt.sign({ _id: user._id, username: user.username }, process.env.SECRET, { // Creates a token
             expiresIn: "60 days"
           });
-          res.cookie("nToken", token, { maxAge: 900000, httpOnly: true }); // Sets a cookie and redirects to root view
+          res.cookie("nToken", token, { maxAge: 900000, httpOnly: true }); // Sets a cookie and redirects to !root view! (!on the next line!)
           res.redirect("/");
         });
       }).catch(err => {

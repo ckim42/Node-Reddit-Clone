@@ -2,24 +2,45 @@
   <div class="col-sm-6 col-sm-offset-3">
 
     <a href="{{post.url}}" class="lead">{{post.title}}</a>
-    <p>{{post.summary}}</p>
-    <p><i>Subreddit: </i>{{post.subreddit}}</p>
-    <p><i>Author: </i>{{post.author.username}}</p>
+    <br><br><p>{{post.summary}}</p>
+    <h7><i>Subreddit: </i>{{post.subreddit}}</h7><br>
+    <h7><i>Author: </i>{{post.author.username}}</h7>
 
-    <form action="/posts/{{post._id}}/comments" method="post">
-      <textarea class="form-control" name="content" placeholder="Comment"></textarea>
-      <input type="hidden" name="postId" value="{{post._id}}">
-      <div class="text-right">
-        <button type="submit" class="btn btn-primary">Save</button>
-      </div>
-    </form>
+    <!-- Button to delete post -->
+    <br><p><form method="POST" action="/posts/{{post._id}}?_method=DELETE">
+      <button class="btn btn-danger" type="submit">Delete Post</button>
+    </form></p>
 
+    <br><br>
+
+    <!-- Post comments -->
+    <br><h3>Comments</h3><br>
+
+    {{#if this.post}}
     {{#each post.comments}}
-      <p>{{this.content}}</p>
-      <p class="text-right">{{this.author.username}}</p>
-      <a href="/posts/{{../post._id}}/comments/{{this._id}}/replies/new">Reply</a>
-      {{> comment comment=this postId=../post._id}}
+
+      <div class="card col-xs-12 comment-indent">
+
+        <p>{{this.content}}</p>
+        <p class="text-right"><i>Author: </i>{{this.author.username}}</p><br>
+        <a href="/posts/{{../post._id}}/comments/{{this._id}}/replies/new">Reply</a> <!-- if it's in an each, there needs to be a "this" in whatever it's complaining doesn't exist. -->
+
+        {{#if this.comments}}
+        {{#each this.comments}} <!-- without the #if and #each, the following line shows ALL the comments, not only replies - and it's supposed to be showing replies, aka comments on comments. -->
+          {{> comment comment=this postId=../post._id}}
+        {{/each}}
+        {{/if}}
+
+      </div>
+
     {{/each}}
+    {{/if}}
+
+    <br><br><br>
+
+    {{> comment-form}}
+
+
 
   </div>
 </div>

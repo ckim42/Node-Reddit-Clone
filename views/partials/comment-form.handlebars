@@ -1,0 +1,7 @@
+<form action="/posts/{{post._id}}/comments" method="post">
+  <textarea class="form-control" name="content" placeholder="Comment"></textarea>
+  <input type="hidden" name="postId" value="{{post._id}}">
+  <div class="text-right">
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+</form><br><br>
