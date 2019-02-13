@@ -80,11 +80,6 @@ describe('Posts', function() {
       });
   });
 
-  // // Deletes post after test run so we're not accumulating useless dummy posts ORIGINAL
-  // after(function() {
-  //   Post.findOneAndDelete(newPost);
-  // });
-
   // New version of after hook
   after(function(done) {
     Post.findOneAndDelete(newPost)

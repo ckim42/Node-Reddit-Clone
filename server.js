@@ -27,6 +27,7 @@ require('dotenv').config();
 require('./data/reddit-db');
 
 // middleware
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reddit-clone');
 app.use(methodOverride('_method'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -46,7 +47,10 @@ require('./controllers/comments.js')(app);
 require('./controllers/auth.js')(app);
 require('./controllers/replies.js')(app);
 
-app.listen(3000, () => {
+const port = process.env.PORT || 3000;
+const mongoUri = process.env.MONGODB_URI || "mongodb://localhost.27017/reddit-clone"; mongoose.connect(mongoUri, {useNewUrlParser: true});
+
+app.listen(port, () => {
   console.log('App listening on port 3000!')
 });
 
