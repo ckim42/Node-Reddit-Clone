@@ -1,8 +1,6 @@
 const Post = require("../models/post");
 const Comment = require("../models/comment");
 const User = require("../models/user");
-const express = require('express');
-const app = express();
 
 module.exports = app => {
 

@@ -1,9 +1,9 @@
 <div class="card col-xs-12 comment-indent">
-    <p>{{comment.content}}</p>
-    <p class="text-right"><i>Author: </i>{{comment.author.username}}</p><br>
-    {{#if comment.comments}}
-    {{#each comment.comments}}
-      {{> comment comment=this postId=../postId}}
-    {{/each}}
-    {{/if}}
+  <p>{{comment.content}}</p>
+  <p class="text-right"><i>Author: </i>{{comment.author.username}}</p><br>
+  {{#if comment.comments}}
+  {{#each comment.comments}}
+  {{> comment comment=this postId=../postId}}
+  {{/each}}
+  {{/if}}
 </div>

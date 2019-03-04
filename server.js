@@ -12,7 +12,9 @@ const checkAuth = (req, res, next) => {
     req.user = null;
   } else {
     const token = req.cookies.nToken;
-    const decodedToken = jwt.decode(token, { complete: true }) || {};
+    const decodedToken = jwt.decode(token, {
+      complete: true
+    }) || {};
     req.user = decodedToken.payload;
   }
   next();
@@ -29,12 +31,16 @@ require('./data/reddit-db');
 // middleware
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reddit-clone');
 app.use(methodOverride('_method'));
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main'
+}));
 app.set('view engine', 'handlebars');
 app.use(cookieParser());
 //    Use Body Parser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 //    Add after body parser init!
 app.use(expressValidator());
 app.use(checkAuth);
@@ -48,7 +54,10 @@ require('./controllers/auth.js')(app);
 require('./controllers/replies.js')(app);
 
 const port = process.env.PORT || 3000;
-const mongoUri = process.env.MONGODB_URI || "mongodb://localhost.27017/reddit-clone"; mongoose.connect(mongoUri, {useNewUrlParser: true});
+const mongoUri = process.env.MONGODB_URI || "mongodb://localhost.27017/reddit-clone";
+mongoose.connect(mongoUri, {
+  useNewUrlParser: true
+});
 
 app.listen(port, () => {
   console.log('App listening on port 3000!')

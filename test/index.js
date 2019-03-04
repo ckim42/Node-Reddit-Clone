@@ -7,15 +7,15 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe("site", function() {
+describe("site", function () {
   // Describe what you're testing
-  it("Should have home page", function(done) {
+  it("Should have home page", function (done) {
     // Describe what should happen
     // In this case, we test that the home page loads
     chai
       .request(app)
       .get("/")
-      .end(function(err, res) {
+      .end(function (err, res) {
         if (err) {
           return done(err);
         }

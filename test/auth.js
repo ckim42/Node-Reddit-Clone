@@ -15,22 +15,30 @@ const User = require("../models/user");
 const Post = require('../models/post');
 const Comment = require('../models/comment');
 
-describe("User", function() {
+describe("User", function () {
 
-  it("should not be able to login if they have not registered", function(done) {
-    agent.post("/login", { email: "wrong@wrong.com", password: "nope" }).end(function(err, res) {
+  it("should not be able to login if they have not registered", function (done) {
+    agent.post("/login", {
+      email: "wrong@wrong.com",
+      password: "nope"
+    }).end(function (err, res) {
       res.status.should.be.equal(401);
       done();
     });
   });
 
   // signup
-  it("should be able to signup", function(done) {
-    User.findOneAndRemove({ username: "testone" }, function() {
+  it("should be able to signup", function (done) {
+    User.findOneAndRemove({
+      username: "testone"
+    }, function () {
       agent
         .post("/sign-up")
-        .send({ username: "testone", password: "password" })
-        .end(function(err, res) {
+        .send({
+          username: "testone",
+          password: "password"
+        })
+        .end(function (err, res) {
           console.log(res.body);
           res.should.have.status(200);
           // agent.should.have.cookie("nToken");
@@ -41,8 +49,8 @@ describe("User", function() {
   });
 
   // logout
-  it("should be able to logout", function(done) {
-    agent.get("/logout").end(function(err, res) {
+  it("should be able to logout", function (done) {
+    agent.get("/logout").end(function (err, res) {
       res.should.have.status(200);
       agent.should.not.have.cookie("nToken");
       done();

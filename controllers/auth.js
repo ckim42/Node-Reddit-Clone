@@ -16,12 +16,21 @@ module.exports = (app) => {
     // Create user & JWT
     const user = new User(req.body);
     user.save().then((user) => {
-      var token = jwt.sign({ _id: user._id }, process.env.SECRET, { expiresIn: "60 days" });
-      res.cookie('nToken', token, { maxAge: 900000, httpOnly: true });
+      var token = jwt.sign({
+        _id: user._id
+      }, process.env.SECRET, {
+        expiresIn: "60 days"
+      });
+      res.cookie('nToken', token, {
+        maxAge: 900000,
+        httpOnly: true
+      });
       res.redirect("/");
     }).catch(err => {
       console.log(err.message);
-      return res.status(400).send({ err: err });
+      return res.status(400).send({
+        err: err
+      });
     });
   });
 
@@ -43,19 +52,31 @@ module.exports = (app) => {
     const user = new User(req.body);
 
     // Find this user name
-    User.findOne({ username }, "username password")
+    User.findOne({
+        username
+      }, "username password")
       .then(user => {
         if (!user) { // User not found
-          return res.status(401).send({ message: "Wrong Username or Password" });
+          return res.status(401).send({
+            message: "Wrong Username or Password"
+          });
         }
         user.comparePassword(password, (err, isMatch) => { // Checks password
           if (!isMatch) { // Password doesn't match
-            return res.status(401).send({ message: "Wrong Username or password" });
+            return res.status(401).send({
+              message: "Wrong Username or password"
+            });
           }
-          const token = jwt.sign({ _id: user._id, username: user.username }, process.env.SECRET, { // Creates a token
+          const token = jwt.sign({
+            _id: user._id,
+            username: user.username
+          }, process.env.SECRET, { // Creates a token
             expiresIn: "60 days"
           });
-          res.cookie("nToken", token, { maxAge: 900000, httpOnly: true }); // Sets a cookie and redirects to !root view! (!on the next line!)
+          res.cookie("nToken", token, {
+            maxAge: 900000,
+            httpOnly: true
+          }); // Sets a cookie and redirects to !root view! (!on the next line!)
           res.redirect("/");
         });
       }).catch(err => {

@@ -16,7 +16,7 @@ const agent = chai.request.agent(app);
 chai.should();
 chai.use(chaiHttp);
 
-describe('Posts', function() {
+describe('Posts', function () {
   const agent = chai.request.agent(server);
   // Post that we'll use for testing
   const newPost = {
@@ -31,23 +31,23 @@ describe('Posts', function() {
     password: 'testposts'
   };
 
-  before(function(done) {
+  before(function (done) {
     agent
       .post('/sign-up')
       .set("content-type", "application/x-www-form-urlencoded")
       .send(user)
-      .then(function(res) {
+      .then(function (res) {
         done();
       })
-      .catch(function(err) {
+      .catch(function (err) {
         done(err);
       });
   });
 
-  it('Should create with valid attributes at POST /posts/new', function(done) {
+  it('Should create with valid attributes at POST /posts/new', function (done) {
     // Checks how many posts there are now
     Post.estimatedDocumentCount()
-      .then(function(initialDocCount) {
+      .then(function (initialDocCount) {
         agent
           .post("/posts/new")
           // The following masquerades as form post b/c we won't actually fill one while testing
@@ -55,44 +55,44 @@ describe('Posts', function() {
           // Make a request to create another
           .send(newPost)
           //test fails out after the send
-          .then(function(res) {
+          .then(function (res) {
             Post.estimatedDocumentCount()
-              .then(function(newDocCount) {
+              .then(function (newDocCount) {
                 // Check that the database has one more post in it
                 expect(res).to.have.status(200);
                 // Check that the database has one more post in it
                 expect(newDocCount).to.be.equal(initialDocCount + 1)
                 return done();
               })
-              .catch(function(err) {
+              .catch(function (err) {
                 console.log(err.message)
                 done(err);
               });
           })
-          .catch(function(err) {
+          .catch(function (err) {
             console.log(err.message)
             done(err);
           });
       })
-      .catch(function(err) {
+      .catch(function (err) {
         console.log(err.message)
         done(err);
       });
   });
 
   // New version of after hook
-  after(function(done) {
+  after(function (done) {
     Post.findOneAndDelete(newPost)
-      .then(function(res) {
+      .then(function (res) {
         agent.close()
         User.findOneAndDelete({
           username: user.username
-        }).then(function(res) {
+        }).then(function (res) {
           done()
-        }).catch(function(err) {
+        }).catch(function (err) {
           done(err);
         });
-      }).catch(function(err) {
+      }).catch(function (err) {
         done(err);
       });
   });

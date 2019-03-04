@@ -3,16 +3,32 @@ const bcrypt = require("bcryptjs");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  createdAt: { type: Date },
-  updatedAt: { type: Date },
-  password: { type: String, select: false },
-  username: { type: String, required: true },
-  comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
-  posts : [{ type: Schema.Types.ObjectId, ref: "Post" }]
+  createdAt: {
+    type: Date
+  },
+  updatedAt: {
+    type: Date
+  },
+  password: {
+    type: String,
+    select: false
+  },
+  username: {
+    type: String,
+    required: true
+  },
+  comments: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Comment'
+  }],
+  posts: [{
+    type: Schema.Types.ObjectId,
+    ref: "Post"
+  }]
 });
 
 // MUST use fxn here! ES6 => fxns DO NOT bind this!
-UserSchema.pre("save", function(next) { // Define the callback w/ a regular fxn to avoid problems w/ this
+UserSchema.pre("save", function (next) { // Define the callback w/ a regular fxn to avoid problems w/ this
   const now = new Date(); // Set "createdAt" & "updatedAt"
   this.updatedAt = now;
   if (!this.createdAt) {
@@ -33,7 +49,7 @@ UserSchema.pre("save", function(next) { // Define the callback w/ a regular fxn 
 });
 
 // Must use fxn for this.password to work
-UserSchema.methods.comparePassword = function(password, done) {
+UserSchema.methods.comparePassword = function (password, done) {
   bcrypt.compare(password, this.password, (err, isMatch) => {
     done(err, isMatch);
   });
