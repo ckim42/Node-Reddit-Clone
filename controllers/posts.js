@@ -34,7 +34,7 @@ module.exports = function (app) {
       post.voteScore = 0;
       post.save()
         .then(post => {
-          return User.findById(post.author); // using in place of req.user._id
+          return User.findById(post.author); // using post.author in place of req.user._id
         }).then(user => {
           user.posts.unshift(post);
           user.save();
@@ -78,7 +78,7 @@ module.exports = function (app) {
     var currentUser = req.user;
     Post.find({
         subreddit: req.params.subreddit
-      }).lean()
+    }).lean() // lean() will return queries in plain JavaScript w/o mongoose https://thecodebarbarian.com/mongoose-4.11-lean-virtuals
       .then(posts => {
         res.render("posts-index", {
           posts,
