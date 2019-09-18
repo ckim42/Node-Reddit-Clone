@@ -39,7 +39,7 @@ const PostSchema = new Schema({
   voteScore: {
     type: Number
   }
-});
+}); 
 
 // Always populate the author field
 PostSchema.pre('findOne', Populate('author')).pre('find', Populate('author'))
