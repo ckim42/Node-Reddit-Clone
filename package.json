@@ -18,7 +18,7 @@
     "express-validator": "^5.3.1",
     "handlebars": "^4.1.2",
     "helper-moment": "^0.2.0",
-    "jsonwebtoken": "^8.4.0",
+    "jsonwebtoken": "^9.0.0",
     "method-override": "^3.0.0",
     "mongoose": "^5.4.6",
     "nodemon": "^1.19.1"
